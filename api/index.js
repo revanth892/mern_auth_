@@ -1,7 +1,20 @@
 import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
+ 
+
+// const PORT=4000;
+// const  MONGO_URL='mongodb+srv://revanth9347569169:8lKdlwIPLTHAslDF@cluster0.qgc8rhs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(process.env.MONGO_URL)
+.then(()=>{
+    console.log('Connected to MongoDB');
+})
+.catch((err)=>{w
+    console.log(err);
+});
 
 const app =express();
-const PORT =4000
-app.listen(PORT,()=>{
-    console.log(`Server listening on ${PORT}`)
-})
+app.listen(process.env.PORT,()=>{
+    console.log(`Server listening on ${process.env.PORT}`)
+});
