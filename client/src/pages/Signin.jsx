@@ -30,7 +30,7 @@ export default function SignIn() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      setLoading(false);
+      // setLoading(false);
       if (data.success === false) {
         // setError(true);
         dispatch(signInFailure(data))
